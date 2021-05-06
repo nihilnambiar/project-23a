@@ -31,6 +31,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
+
 	packageBody = Bodies.circle(width/2,200,20,{restitution : 0.5, isStatic : true});
 	World.add(world,packageBody);
 	
@@ -41,11 +42,11 @@ function setup() {
 	 World.add(world, leftBody)
 	 leftSprite=createSprite(boxPosition,610,20,100)
 
-	 rigtBody=Bodies.rectangle(boxPosition+180,610,20,100)
+	 rightBody=Bodies.rectangle(boxPosition+180,610,20,100)
 	 World.add(world,rightBody)
 	 rightSprite=createSprite(boxPosition+200,610,20,100)
 
-	 baseBody=Bodies.rectangle(boxPosition+100,635,200,20)
+	 baseBody=Bodies.rectangle(boxPosition+100,645,200,10)
 	 World.add(world, baseBody)
 	 baseSprite=createSprite(boxPosition+100,650,200,20)
 }
@@ -56,11 +57,9 @@ function setup() {
 function draw() {
  
   background(0);
-
+Engine.update(engine)
   packageSprite.x = packageBody.position.x;
   packageSprite.y = packageBody.position.y;
-
-  keyPressed();
  
   drawSprites();
 
